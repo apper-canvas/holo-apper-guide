@@ -1,0 +1,67 @@
+[
+  {
+    "id": "example-1",
+    "title": "Smart Todo Manager",
+    "prompt": "Create a todo app with:\n- Add tasks with categories and due dates\n- Mark tasks complete with smooth animations\n- Filter by category, status, and date\n- Dark theme with purple accents\n- Smart suggestions for task categories\n- Progress visualization with charts\n- Mobile-optimized with swipe actions",
+    "result": {
+      "type": "Productivity App",
+      "features": ["Task management", "Category filtering", "Due date tracking", "Progress charts", "Smart suggestions"],
+      "components": ["TaskList", "AddTaskForm", "CategoryFilter", "ProgressChart", "TaskItem"],
+      "description": "A sophisticated task management app with intelligent categorization and beautiful dark theme",
+      "codeLines": 450
+    },
+    "category": "productivity"
+  },
+  {
+    "id": "example-2",
+    "title": "Recipe Discovery",
+    "prompt": "Build a recipe app featuring:\n- Beautiful recipe cards with food photos\n- Search by ingredients, cuisine, or diet\n- Step-by-step cooking instructions\n- Shopping list generation\n- Rating and review system\n- Warm orange and cream color palette\n- Ingredient substitution suggestions",
+    "result": {
+      "type": "Lifestyle App",
+      "features": ["Recipe search", "Cooking instructions", "Shopping lists", "Ratings & reviews", "Ingredient substitutions"],
+      "components": ["RecipeCard", "SearchBar", "InstructionSteps", "ShoppingList", "RatingSystem"],
+      "description": "A comprehensive recipe platform with intelligent ingredient suggestions",
+      "codeLines": 520
+    },
+    "category": "entertainment"
+  },
+  {
+    "id": "example-3",
+    "title": "Expense Tracker Pro",
+    "prompt": "Design a personal finance app with:\n- Add expenses with categories and receipts\n- Monthly budget tracking and alerts\n- Visual spending analytics with charts\n- Bank account balance monitoring\n- Export data to CSV/PDF\n- Clean green and white design\n- Recurring expense automation",
+    "result": {
+      "type": "Finance App",
+      "features": ["Expense tracking", "Budget monitoring", "Analytics charts", "Data export", "Recurring expenses"],
+      "components": ["ExpenseForm", "BudgetTracker", "SpendingChart", "CategoryManager", "ExportTools"],
+      "description": "A complete personal finance solution with advanced analytics",
+      "codeLines": 680
+    },
+    "category": "utility"
+  },
+  {
+    "id": "example-4",
+    "title": "Team Project Hub",
+    "prompt": "Create a project management tool with:\n- Kanban boards with drag-and-drop tasks\n- Team member assignment and notifications\n- Project timeline and milestone tracking\n- File sharing and comments\n- Real-time collaboration features\n- Professional blue and gray theme\n- Mobile-responsive design",
+    "result": {
+      "type": "Business App",
+      "features": ["Kanban boards", "Team collaboration", "Timeline tracking", "File sharing", "Real-time updates"],
+      "components": ["KanbanBoard", "TaskCard", "Timeline", "FileUpload", "NotificationCenter"],
+      "description": "A full-featured project management platform for teams",
+      "codeLines": 780
+    },
+    "category": "business"
+  },
+  {
+    "id": "example-5",
+    "title": "Social Photo Gallery",
+    "prompt": "Build a photo sharing app that includes:\n- Upload and organize photos in albums\n- Like, comment, and share features\n- Follow other users and see their feeds\n- Advanced photo filters and editing\n- Stories that disappear after 24 hours\n- Modern Instagram-inspired design\n- Mobile-first with touch gestures",
+    "result": {
+      "type": "Social App",
+      "features": ["Photo sharing", "Social interactions", "Photo editing", "Stories", "User feeds"],
+      "components": ["PhotoGallery", "PhotoEditor", "CommentSystem", "UserProfile", "StoriesViewer"],
+      "description": "A modern social media platform focused on photo sharing",
+      "codeLines": 950
+    },
+    "category": "social"
+  }
+]

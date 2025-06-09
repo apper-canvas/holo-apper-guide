@@ -1,0 +1,9 @@
+[
+  {
+    "id": "current-user",
+    "currentLesson": "lesson-2",
+    "completedLessons": ["lesson-1"],
+    "badges": ["first-app"],
+    "lastAccessed": "2024-01-15T10:30:00Z"
+  }
+]

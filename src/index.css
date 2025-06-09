@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import react-toastify CSS */
+@import 'react-toastify/dist/ReactToastify.css';
+
+/* Ensure scrollbars are visible */
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Prevent horizontal overflow */
+* {
+  max-width: 100%;
+}
+
+/* Main content areas must allow scroll */
+.main-content {
+  overflow-y: auto;
+  height: 100vh;
+}
+
+/* Code syntax highlighting */
+.code-block {
+  background: #1e293b;
+  color: #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.code-keyword {
+  color: #8b5cf6;
+  font-weight: 600;
+}
+
+.code-string {
+  color: #10b981;
+}
+
+.code-comment {
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Progress ring animation */
+.progress-ring {
+  transform: rotate(-90deg);
+  transition: all 0.3s ease;
+}
+
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+/* Tip box styling */
+.tip-box {
+  border-left: 4px solid;
+  padding: 1rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1rem 0;
+}
+
+.tip-box.info {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.tip-box.warning {
+  border-color: #f59e0b;
+  background-color: #fffbeb;
+}
+
+.tip-box.success {
+  border-color: #10b981;
+  background-color: #ecfdf5;
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,100 @@
+[
+  {
+    "id": "lesson-1",
+    "title": "Welcome to Apper",
+    "description": "Learn the basics of describing apps with natural language",
+    "content": "<h3>What is Apper?</h3><p>Apper is a revolutionary tool that lets you build complete web applications using nothing but natural language descriptions. Instead of writing code, you simply describe what you want your app to do, how it should look, and how users should interact with it.</p><h3>How It Works</h3><p>When you write a prompt like 'Create a todo app with purple colors and smooth animations,' Apper understands your intent and generates a fully functional application with:</p><ul><li>Complete user interface</li><li>Interactive functionality</li><li>Responsive design</li><li>Modern styling</li></ul><h3>Your First Prompt</h3><p>Let's start with something simple. Try describing a basic app in the exercise area and watch Apper bring it to life!</p>",
+    "exercises": [
+      {
+        "instruction": "Try writing a simple prompt like 'Create a calculator app with blue buttons'",
+        "startingCode": "Create a simple calculator app with:\n- Number buttons 0-9\n- Basic operations (+, -, *, /)\n- Clear button\n- Blue color scheme"
+      }
+    ],
+    "completed": false,
+    "progress": 0
+  },
+  {
+    "id": "lesson-2",
+    "title": "Describing App Features",
+    "description": "Learn how to specify functionality and user interactions",
+    "content": "<h3>Being Specific About Features</h3><p>The key to getting great results from Apper is being specific about what your app should do. Instead of saying 'make it interactive,' describe exactly what should happen when users interact with your app.</p><h3>Good vs. Great Prompts</h3><p><strong>Good:</strong> 'Create a todo app'</p><p><strong>Great:</strong> 'Create a todo app where users can add tasks by typing and pressing enter, mark tasks complete by clicking them, and delete tasks with a red X button'</p><h3>Common Feature Patterns</h3><ul><li><strong>Data Entry:</strong> Forms, input fields, buttons</li><li><strong>Data Display:</strong> Lists, cards, tables, charts</li><li><strong>User Actions:</strong> Click, hover, drag, search, filter</li><li><strong>State Changes:</strong> Show/hide, enable/disable, highlight</li></ul>",
+    "exercises": [
+      {
+        "instruction": "Describe a contact list app with specific features for adding, searching, and managing contacts",
+        "startingCode": "Create a contact management app with:\n- Add new contacts with name, email, phone\n- Search contacts by name\n- Click contacts to view details\n- Delete contacts with confirmation"
+      }
+    ],
+    "completed": false,
+    "progress": 0
+  },
+  {
+    "id": "lesson-3",
+    "title": "Design & Styling",
+    "description": "Master visual design through descriptive language",
+    "content": "<h3>Describing Visual Design</h3><p>Apper can create beautiful, modern designs when you describe your visual preferences clearly. You can specify colors, layouts, typography, and visual elements without knowing CSS or design principles.</p><h3>Design Elements to Mention</h3><ul><li><strong>Colors:</strong> Primary color, accent colors, backgrounds</li><li><strong>Layout:</strong> Grid, list, card-based, sidebar, tabs</li><li><strong>Style:</strong> Modern, minimalist, playful, professional</li><li><strong>Components:</strong> Buttons, forms, navigation, icons</li></ul><h3>Visual Language Examples</h3><p>'Clean and modern with purple primary colors'</p><p>'Dark theme with green accents and rounded corners'</p><p>'Card-based layout with subtle shadows and icons'</p><p>'Mobile-first design with large touch-friendly buttons'</p>",
+    "exercises": [
+      {
+        "instruction": "Design a recipe app with specific visual styling and layout preferences",
+        "startingCode": "Create a recipe collection app with:\n- Clean, modern design\n- Warm orange and cream colors\n- Card layout for recipes\n- Large food photos\n- Easy-to-read ingredient lists"
+      }
+    ],
+    "completed": false,
+    "progress": 0
+  },
+  {
+    "id": "lesson-4",
+    "title": "Data & Structure",
+    "description": "Define how your app organizes and handles information",
+    "content": "<h3>Thinking About Data</h3><p>Every app works with some kind of information. When describing your app, think about what data it needs to store and how that data should be organized and displayed.</p><h3>Common Data Patterns</h3><ul><li><strong>Items in Lists:</strong> Todo tasks, contacts, products, articles</li><li><strong>User-Generated Content:</strong> Posts, comments, reviews, messages</li><li><strong>Structured Information:</strong> Profiles, settings, forms, surveys</li><li><strong>Time-Based Data:</strong> Events, schedules, logs, history</li></ul><h3>Describing Data Flow</h3><p>Explain how users interact with data:</p><ul><li>How do they add new information?</li><li>How do they find and view existing data?</li><li>Can they edit or delete items?</li><li>How is data organized and categorized?</li></ul>",
+    "exercises": [
+      {
+        "instruction": "Create an expense tracker that handles financial data with categories and dates",
+        "startingCode": "Build an expense tracking app where:\n- Users add expenses with amount, category, date\n- Expenses show in a list with totals\n- Filter by category and date range\n- Charts show spending by category"
+      }
+    ],
+    "completed": false,
+    "progress": 0
+  },
+  {
+    "id": "lesson-5",
+    "title": "Advanced Interactions",
+    "description": "Create sophisticated user experiences and dynamic behaviors",
+    "content": "<h3>Beyond Basic Clicks</h3><p>Modern apps have rich, interactive experiences. You can describe complex interactions and Apper will implement them with smooth animations and intuitive behaviors.</p><h3>Advanced Interaction Types</h3><ul><li><strong>Drag & Drop:</strong> Reorder lists, move items between categories</li><li><strong>Real-time Updates:</strong> Live search, auto-save, instant feedback</li><li><strong>Smart Behaviors:</strong> Auto-complete, suggestions, smart defaults</li><li><strong>Progressive Disclosure:</strong> Expand/collapse, tabs, modals, wizards</li></ul><h3>Animation & Feedback</h3><p>Describe how your app should feel:</p><ul><li>'Smooth animations when adding items'</li><li>'Gentle hover effects on buttons'</li><li>'Loading indicators for slow operations'</li><li>'Success messages that fade out automatically'</li></ul>",
+    "exercises": [
+      {
+        "instruction": "Design a project management app with advanced interactions and smooth animations",
+        "startingCode": "Create a project board where:\n- Drag tasks between columns (To Do, In Progress, Done)\n- Click tasks to edit in a modal\n- Add tasks with auto-save\n- Smooth animations for all interactions\n- Progress indicators and success feedback"
+      }
+    ],
+    "completed": false,
+    "progress": 0
+  },
+  {
+    "id": "lesson-6",
+    "title": "Mobile & Responsive",
+    "description": "Ensure your apps work perfectly on all devices",
+    "content": "<h3>Mobile-First Thinking</h3><p>Today's apps must work seamlessly across phones, tablets, and desktop computers. Apper automatically creates responsive designs, but you can guide the mobile experience by describing device-specific behaviors.</p><h3>Responsive Design Patterns</h3><ul><li><strong>Layout Adaptation:</strong> Sidebar becomes drawer on mobile</li><li><strong>Touch-Friendly:</strong> Larger buttons, swipe gestures</li><li><strong>Content Priority:</strong> Most important features prominent on small screens</li><li><strong>Navigation:</strong> Bottom tabs, hamburger menus, simplified flows</li></ul><h3>Mobile-Specific Features</h3><p>Mention mobile considerations in your prompts:</p><ul><li>'Mobile-first design with large touch targets'</li><li>'Swipe to delete items on mobile'</li><li>'Bottom navigation for easy thumb access'</li><li>'Pull to refresh functionality'</li></ul>",
+    "exercises": [
+      {
+        "instruction": "Create a news reader app optimized for mobile with touch-friendly interactions",
+        "startingCode": "Build a news reading app that:\n- Shows articles in mobile-friendly cards\n- Swipe between article categories\n- Large, easy-to-tap buttons\n- Bottom navigation bar\n- Pull to refresh for new articles\n- Reading mode with large text"
+      }
+    ],
+    "completed": false,
+    "progress": 0
+  },
+  {
+    "id": "lesson-7",
+    "title": "Putting It All Together",
+    "description": "Build a complete app using all the techniques you've learned",
+    "content": "<h3>Your Capstone Project</h3><p>Now that you've learned all the fundamentals, it's time to build a complete app that demonstrates everything you've mastered. This final lesson will guide you through creating a sophisticated application.</p><h3>Planning Your App</h3><p>Before writing your prompt, consider:</p><ul><li><strong>Purpose:</strong> What problem does your app solve?</li><li><strong>Users:</strong> Who will use it and how?</li><li><strong>Features:</strong> What can users do with it?</li><li><strong>Design:</strong> How should it look and feel?</li><li><strong>Data:</strong> What information does it handle?</li></ul><h3>Writing a Comprehensive Prompt</h3><p>Combine everything you've learned:</p><ul><li>Clear feature descriptions</li><li>Specific visual design</li><li>Data structure and flow</li><li>Interactive behaviors</li><li>Mobile considerations</li></ul>",
+    "exercises": [
+      {
+        "instruction": "Create a comprehensive app that showcases all the skills you've learned. Choose something you're passionate about!",
+        "startingCode": "Design a complete app for [your choice] that includes:\n- Multiple features and user interactions\n- Beautiful, cohesive design\n- Mobile-responsive layout\n- Data management and organization\n- Smooth animations and feedback\n- Modern, professional appearance"
+      }
+    ],
+    "completed": false,
+    "progress": 0
+  }
+]
