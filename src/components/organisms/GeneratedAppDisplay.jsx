@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import ApperIcon from '@/components/ApperIcon';
-import Pill from '@/components/atoms/Pill';
-
+import ApperIcon from '../ApperIcon';
+import Pill from '../atoms/Pill';
 const GeneratedAppDisplay = ({ generatedApp }) => {
     if (!generatedApp) {
         return (
