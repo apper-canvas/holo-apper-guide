@@ -1,103 +1,113 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { toast } from 'react-toastify'
-import ApperIcon from './ApperIcon'
-import { lessonService } from '../services'
+import { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { toast } from 'react-toastify';
+import ApperIcon from '@/components/ApperIcon';
+import Button from '@/components/atoms/Button';
+import Input from '@/components/atoms/Input';
+import ProgressBar from '@/components/atoms/ProgressBar';
+import { lessonService } from '@/services';
 
-export default function MainFeature() {
-  const [currentLesson, setCurrentLesson] = useState(null)
-  const [lessons, setLessons] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-  const [userCode, setUserCode] = useState('')
-  const [previewResult, setPreviewResult] = useState(null)
+const TutorialContent = () => {
+  const [currentLesson, setCurrentLesson] = useState(null);
+  const [lessons, setLessons] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [userCode, setUserCode] = useState('');
+  const [previewResult, setPreviewResult] = useState(null);
 
   useEffect(() => {
-    loadLessons()
-  }, [])
+    loadLessons();
+  }, []);
 
   const loadLessons = async () => {
-    setLoading(true)
-    setError(null)
+    setLoading(true);
+    setError(null);
     try {
-      const result = await lessonService.getAll()
-      setLessons(result)
+      const result = await lessonService.getAll();
+      setLessons(result);
       if (result.length > 0) {
-        setCurrentLesson(result[0])
-        setUserCode(result[0].exercises?.[0]?.startingCode || '')
+        setCurrentLesson(result[0]);
+        setUserCode(result[0].exercises?.[0]?.startingCode || '');
       }
     } catch (err) {
-      setError(err.message || 'Failed to load lessons')
-      toast.error('Failed to load lessons')
+      setError(err.message || 'Failed to load lessons');
+      toast.error('Failed to load lessons');
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   const handleCodeChange = (code) => {
-    setUserCode(code)
+    setUserCode(code);
     // Simulate live preview
     try {
-      const result = simulateApperExecution(code)
-      setPreviewResult(result)
+      const result = simulateApperExecution(code);
+      setPreviewResult(result);
     } catch (err) {
-      setPreviewResult({ error: err.message })
+      setPreviewResult({ error: err.message });
     }
-  }
+  };
 
   const simulateApperExecution = (code) => {
     // Simulate Apper's app generation based on the prompt
-    const lines = code.toLowerCase().split('\n').filter(line => line.trim())
-    
+    const lines = code.toLowerCase().split('\n').filter(line => line.trim());
+
     if (lines.some(line => line.includes('todo') || line.includes('task'))) {
       return {
         type: 'todo-app',
         components: ['Header', 'TodoList', 'AddTodo'],
         description: 'A task management app with add, complete, and delete functionality'
-      }
+      };
     } else if (lines.some(line => line.includes('calculator'))) {
       return {
         type: 'calculator',
         components: ['Display', 'ButtonGrid', 'Calculator'],
         description: 'A functional calculator with basic arithmetic operations'
-      }
+      };
     } else if (lines.some(line => line.includes('blog') || line.includes('article'))) {
       return {
         type: 'blog',
         components: ['Header', 'PostList', 'PostDetail'],
         description: 'A blog application with posts, comments, and navigation'
-      }
+      };
     } else {
       return {
         type: 'generic',
         components: ['App', 'MainContent'],
         description: 'A basic web application based on your description'
-      }
+      };
     }
-  }
+  };
 
   const completeLesson = async () => {
-    if (!currentLesson) return
-    
+    if (!currentLesson) return;
+
     try {
-      await lessonService.update(currentLesson.id, { 
-        ...currentLesson, 
+      await lessonService.update(currentLesson.id, {
+        ...currentLesson,
         completed: true,
-        progress: 100 
-      })
-      toast.success('Lesson completed! 🎉')
-      
+        progress: 100
+      });
+      toast.success('Lesson completed! 🎉');
+
       // Move to next lesson
-      const currentIndex = lessons.findIndex(l => l.id === currentLesson.id)
+      const currentIndex = lessons.findIndex(l => l.id === currentLesson.id);
       if (currentIndex < lessons.length - 1) {
-        const nextLesson = lessons[currentIndex + 1]
-        setCurrentLesson(nextLesson)
-        setUserCode(nextLesson.exercises?.[0]?.startingCode || '')
+        const nextLesson = lessons[currentIndex + 1];
+        setCurrentLesson(nextLesson);
+        setUserCode(nextLesson.exercises?.[0]?.startingCode || '');
       }
     } catch (err) {
-      toast.error('Failed to save progress')
+      toast.error('Failed to save progress');
     }
-  }
+  };
+
+  const goToPreviousLesson = () => {
+    const currentIndex = lessons.findIndex(l => l.id === currentLesson.id);
+    if (currentIndex > 0) {
+      setCurrentLesson(lessons[currentIndex - 1]);
+    }
+  };
 
   if (loading) {
     return (
@@ -117,7 +127,7 @@ export default function MainFeature() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   if (error) {
@@ -127,15 +137,12 @@ export default function MainFeature() {
           <ApperIcon name="AlertCircle" size={48} className="text-error mx-auto mb-4" />
           <h3 className="text-lg font-medium text-gray-900 mb-2">Unable to Load Tutorial</h3>
           <p className="text-gray-600 mb-4">{error}</p>
-          <button
-            onClick={loadLessons}
-            className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
-          >
+          <Button onClick={loadLessons} variant="primary">
             Try Again
-          </button>
+          </Button>
         </div>
       </div>
-    )
+    );
   }
 
   if (!currentLesson) {
@@ -147,8 +154,10 @@ export default function MainFeature() {
           <p className="text-gray-600">Check back later for new tutorial content.</p>
         </div>
       </div>
-    )
+    );
   }
+
+  const currentLessonIndex = lessons.findIndex(l => l.id === currentLesson.id);
 
   return (
     <div className="h-full flex max-w-full overflow-hidden">
@@ -163,7 +172,7 @@ export default function MainFeature() {
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                   <span className="text-xs font-medium">
-                    {lessons.findIndex(l => l.id === currentLesson.id) + 1}
+                    {currentLessonIndex + 1}
                   </span>
                 </div>
                 <span className="text-sm text-gray-500">
@@ -171,18 +180,11 @@ export default function MainFeature() {
                 </span>
               </div>
             </div>
-            
+
             <p className="text-gray-600 mb-4">{currentLesson.description}</p>
-            
+
             {/* Progress Bar */}
-            <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
-              <motion.div
-                className="bg-accent h-2 rounded-full"
-                initial={{ width: 0 }}
-                animate={{ width: `${currentLesson.progress || 0}%` }}
-                transition={{ duration: 0.5 }}
-              />
-            </div>
+            <ProgressBar progress={currentLesson.progress || 0} className="mb-6" />
           </div>
 
           {/* Lesson Content */}
@@ -200,12 +202,13 @@ export default function MainFeature() {
               <p className="text-gray-600 text-sm mb-4">
                 {currentLesson.exercises[0].instruction}
               </p>
-              
+
               <div className="bg-gray-900 rounded-lg p-4">
-                <textarea
+                <Input
+                  type="textarea"
                   value={userCode}
                   onChange={(e) => handleCodeChange(e.target.value)}
-                  className="w-full h-32 bg-transparent text-green-400 font-mono text-sm resize-none border-none outline-none"
+                  className="!bg-transparent text-green-400 font-mono text-sm resize-none border-none outline-none !p-0 h-32"
                   placeholder="Type your Apper prompt here..."
                 />
               </div>
@@ -214,27 +217,19 @@ export default function MainFeature() {
 
           {/* Navigation */}
           <div className="flex justify-between">
-            <button
-              onClick={() => {
-                const currentIndex = lessons.findIndex(l => l.id === currentLesson.id)
-                if (currentIndex > 0) {
-                  setCurrentLesson(lessons[currentIndex - 1])
-                }
-              }}
-              disabled={lessons.findIndex(l => l.id === currentLesson.id) === 0}
-              className="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
+            <Button
+              onClick={goToPreviousLesson}
+              disabled={currentLessonIndex === 0}
+              variant="ghost"
+              icon={ApperIcon}
+              iconProps={{ name: 'ChevronLeft', size: 16 }}
             >
-              <ApperIcon name="ChevronLeft" size={16} />
-              <span>Previous</span>
-            </button>
-            
-            <button
-              onClick={completeLesson}
-              className="flex items-center space-x-2 px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
-            >
-              <span>Complete Lesson</span>
-              <ApperIcon name="Check" size={16} />
-            </button>
+              Previous
+            </Button>
+
+            <Button onClick={completeLesson} variant="primary" icon={ApperIcon} iconProps={{ name: 'Check', size: 16 }}>
+              Complete Lesson
+            </Button>
           </div>
         </div>
       </div>
@@ -253,7 +248,7 @@ export default function MainFeature() {
           </div>
 
           <AnimatePresence mode="wait">
-            {previewResult && (
+            {previewResult ? (
               <motion.div
                 key={JSON.stringify(previewResult)}
                 initial={{ opacity: 0, y: 20 }}
@@ -274,14 +269,14 @@ export default function MainFeature() {
                         App Generated Successfully
                       </span>
                     </div>
-                    
+
                     <div className="mb-4">
                       <h4 className="font-medium text-gray-900 mb-2">App Type:</h4>
                       <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
                         {previewResult.type}
                       </span>
                     </div>
-                    
+
                     <div className="mb-4">
                       <h4 className="font-medium text-gray-900 mb-2">Components:</h4>
                       <div className="flex flex-wrap gap-2">
@@ -295,26 +290,26 @@ export default function MainFeature() {
                         ))}
                       </div>
                     </div>
-                    
+
                     <p className="text-sm text-gray-600">
                       {previewResult.description}
                     </p>
                   </div>
                 )}
               </motion.div>
+            ) : (
+              <div className="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-12 text-center">
+                <ApperIcon name="Eye" size={32} className="mx-auto mb-3 text-gray-400" />
+                <p className="text-gray-500">
+                  Start typing in the exercise area to see your app come to life!
+                </p>
+              </div>
             )}
           </AnimatePresence>
-
-          {!previewResult && (
-            <div className="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-12 text-center">
-              <ApperIcon name="Eye" size={32} className="mx-auto mb-3 text-gray-400" />
-              <p className="text-gray-500">
-                Start typing in the exercise area to see your app come to life!
-              </p>
-            </div>
-          )}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
+
+export default TutorialContent;

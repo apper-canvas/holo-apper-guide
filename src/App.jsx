@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import { AnimatePresence } from 'framer-motion'
-import Layout from './Layout'
-import { routes, routeArray } from './config/routes'
-import NotFound from './pages/NotFound'
+import Layout from './Layout';
+import { routes, routeArray } from './config/routes';
+import NotFoundPage from '@/components/pages/NotFoundPage';
 import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
                   element={<route.component />}
                 />
               ))}
-              <Route path="*" element={<NotFound />} />
+<Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
         </AnimatePresence>
